@@ -8,8 +8,8 @@ public class WorldManager : MonoBehaviour {
     [SerializeField] private Vector2 _initialPosition;
     [SerializeField] private Vector2 _offSetTile;
 
-    [SerializeField] private GameObject _PrefabTile;
-    [SerializeField] private GameObject _TileParent;
+    [SerializeField] private GameObject _prefabTile;
+    [SerializeField] private GameObject _tileParent;
 
     public void BuildWorld()
     {
@@ -19,7 +19,7 @@ public class WorldManager : MonoBehaviour {
         {
             for (int x = 0; x < _rows; x++)
             {
-                InstantiateTile(_positionTile,x,y);
+                GenerateTile(_positionTile,x,y);
                 _positionTile.x += _offSetTile.x;
             }
             _positionTile.x = _initialPosition.x;
@@ -27,11 +27,10 @@ public class WorldManager : MonoBehaviour {
         }
 	}
 
-    private void InstantiateTile(Vector2 instantiatedTilePosition, int row, int colomn)
+    private void GenerateTile(Vector2 instantiatedTilePosition, int row, int colomn)
     {
         GameObject _tile;
-        _tile = Instantiate(_PrefabTile, instantiatedTilePosition, Quaternion.Euler(0, 0, 0));
-        _tile.transform.SetParent(_TileParent.transform);
+        _tile = Instantiate(_prefabTile, instantiatedTilePosition, Quaternion.Euler(0, 0, 0), _tileParent.transform);
         _tile.name = "_Tile_" + row + "_" + colomn;
     }
 }
