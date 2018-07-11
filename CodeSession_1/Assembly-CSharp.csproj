@@ -61,8 +61,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\GameManager.cs" />
-    <Compile Include="Assets\Scripts\WorldManager.cs" />
+    <Compile Include="Assets\Scripts\IntVector2.cs" />
+    <Compile Include="Assets\Scripts\Managers\GameManager.cs" />
+    <Compile Include="Assets\Scripts\Managers\WorldManager.cs" />
+    <Compile Include="Assets\Scripts\Nodes\CardinalDirection.cs" />
+    <Compile Include="Assets\Scripts\Nodes\Map.cs" />
+    <Compile Include="Assets\Scripts\Nodes\Node.cs" />
+    <Compile Include="Assets\Scripts\Nodes\Tile.cs" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>C:/Users/AntoineFauville/Desktop/CodeSessionFFG/CodeSession_1/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>
