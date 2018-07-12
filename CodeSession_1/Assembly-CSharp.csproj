@@ -61,10 +61,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\IntVector2.cs" />
     <Compile Include="Assets\Scripts\Managers\GameManager.cs" />
     <Compile Include="Assets\Scripts\Managers\WorldManager.cs" />
     <Compile Include="Assets\Scripts\Nodes\CardinalDirection.cs" />
+    <Compile Include="Assets\Scripts\Nodes\Coordinates.cs" />
+    <Compile Include="Assets\Scripts\Nodes\IntVector2.cs" />
     <Compile Include="Assets\Scripts\Nodes\Map.cs" />
     <Compile Include="Assets\Scripts\Nodes\Node.cs" />
     <Compile Include="Assets\Scripts\Nodes\Tile.cs" />

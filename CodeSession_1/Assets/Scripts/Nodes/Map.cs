@@ -15,12 +15,12 @@ public class Map
         _grid.Add(node);
     }
 
-    private static Dictionary<CardinalDirection, IntVector2> _directions = new Dictionary<CardinalDirection, IntVector2>()
+    private static Dictionary<CardinalDirection, Coordinates> _directions = new Dictionary<CardinalDirection, Coordinates>()
     {
-        { CardinalDirection.North, IntVector2.Up },
-        { CardinalDirection.East, IntVector2.Right },
-        { CardinalDirection.South, IntVector2.Down },
-        { CardinalDirection.West, IntVector2.Left }
+        { CardinalDirection.North, Coordinates.North},
+        { CardinalDirection.East, Coordinates.East },
+        { CardinalDirection.South, Coordinates.South },
+        { CardinalDirection.West, Coordinates.West }
     };
 
     public List<Node> GetNeighbours(Node node)
@@ -29,9 +29,9 @@ public class Map
 
         foreach (var direction in _directions.Values)
         {
-            int neighbourX = node.X + direction.x;
-            int neighbourY = node.Y + direction.y;
-            Node neighbour = GetNode(neighbourX, neighbourY);
+            int neighbourX = node.X + direction.X;
+            int neighbourY = node.Y + direction.Y;
+            Node neighbour = GetNodeByCoordinates(neighbourX, neighbourY);
 
             if (neighbour != null)
             {
@@ -43,7 +43,7 @@ public class Map
         return neighbours;
     }
 
-    public Node GetNode(int x, int y)
+    public Node GetNodeByCoordinates(int x, int y)
     {
         foreach (Node node in _grid)
         {

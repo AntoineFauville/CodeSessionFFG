@@ -1,21 +1,19 @@
 ﻿public class Node
 {
-    private readonly int _x;
-    private readonly int _y;
+    private Coordinates _coordinates;
 
     public int X
     {
-        get { return _x; }
+        get { return _coordinates.X; }
     }
 
     public int Y
     {
-        get { return _y; }
+        get { return _coordinates.Y; }
     }
 
-    public Node(int x, int y)
+    public Node(Coordinates coordinates)
     {
-        _x = x;
-        _y = y;
+        coordinates = _coordinates;
     }
 }

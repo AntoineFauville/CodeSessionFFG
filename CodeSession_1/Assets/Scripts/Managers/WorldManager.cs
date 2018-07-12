@@ -27,7 +27,9 @@ public class WorldManager : MonoBehaviour
         {
             for (int x = 0; x < _columns; x++)
             {
-                BuildTile(positionIndexer, x, y);
+                Coordinates coordinates = new Coordinates(x,y);
+
+                BuildTile(positionIndexer, coordinates);
                 positionIndexer.x += _tileOffset.x;
             }
             positionIndexer.x = _initialPosition.x;
@@ -35,18 +37,18 @@ public class WorldManager : MonoBehaviour
         }
     }
 
-    private void BuildTile(Vector2 instantiatePosition, int x, int y)
+    private void BuildTile(Vector2 instantiatePosition, Coordinates coordinates)
     {
         var tile = Instantiate(_tilePrefab, instantiatePosition, Quaternion.identity);
-        string _naming = "[" + x + "]_[" + y + "]";
+        string _naming = "[" + coordinates.X + "]_[" + coordinates.Y + "]";
         tile.name = _naming;
         tile.Text.text = _naming;
-        tile.Node = AddNode(x, y);
+        tile.Node = AddNode(coordinates);
     }
 
-    private Node AddNode(int x, int y)
+    private Node AddNode(Coordinates coordinates)
     {
-        var node = new Node(x, y);
+        var node = new Node(coordinates);
         Map.AddNode(node);
         return node;
     }
